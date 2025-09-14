@@ -1,9 +1,16 @@
 const Post = require('../models/Post');
-const OpenAI = require('openai');
+let openai = null;
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+try {
+  if (process.env.OPENAI_API_KEY) {
+    const OpenAI = require('openai');
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+} catch (error) {
+  console.log('OpenAI not configured');
+}
 
 const createPost = async (req, res) => {
   try {
