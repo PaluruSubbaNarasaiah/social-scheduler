@@ -9,20 +9,20 @@
     "build": "echo 'No build step required for backend'"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.5.0",
+    "axios": "^1.12.1",
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2",
+    "cloudinary": "^1.40.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "facebook-nodejs-business-sdk": "^18.0.4",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
     "multer": "^1.4.5-lts.1",
-    "cloudinary": "^1.40.0",
     "node-cron": "^3.0.2",
     "openai": "^4.0.0",
-    "razorpay": "^2.9.2",
-    "axios": "^1.5.0",
-    "twitter-api-v2": "^1.15.0",
-    "facebook-nodejs-business-sdk": "^18.0.0"
+    "razorpay": "^2.9.6",
+    "twitter-api-v2": "^1.27.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
