@@ -1,0 +1,44 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1024" height="1024" rx="180" fill="url(#gradient)"/>
+  
+  <rect x="200" y="250" width="624" height="524" rx="60" fill="white" opacity="0.95"/>
+  <rect x="200" y="250" width="624" height="120" rx="60" fill="white"/>
+  
+  <rect x="280" y="180" width="40" height="140" rx="20" fill="white" opacity="0.8"/>
+  <rect x="704" y="180" width="40" height="140" rx="20" fill="white" opacity="0.8"/>
+  
+  <g fill="#3b82f6" opacity="0.7">
+    <circle cx="320" cy="450" r="25"/>
+    <circle cx="420" cy="450" r="25"/>
+    <circle cx="520" cy="450" r="25"/>
+    <circle cx="620" cy="450" r="25"/>
+    <circle cx="720" cy="450" r="25"/>
+    
+    <circle cx="320" cy="550" r="25"/>
+    <circle cx="420" cy="550" r="25"/>
+    <circle cx="520" cy="550" r="25"/>
+    <circle cx="620" cy="550" r="25"/>
+    <circle cx="720" cy="550" r="25"/>
+  </g>
+  
+  <g transform="translate(450, 800)">
+    <circle cx="0" cy="0" r="35" fill="#E4405F"/>
+    <circle cx="0" cy="0" r="15" fill="none" stroke="white" stroke-width="3"/>
+    <circle cx="12" cy="-12" r="3" fill="white"/>
+    
+    <rect x="60" y="-35" width="70" height="70" rx="15" fill="#1877F2"/>
+    <path d="M105 -20 L105 -5 L115 -5 L115 10 L105 10 L105 35 L90 35 L90 10 L80 10 L80 -5 L90 -5 L90 -15 Q90 -25 100 -25 L115 -25 L115 -10 L105 -10 Q105 -15 105 -20 Z" fill="white"/>
+  </g>
+  
+  <g transform="translate(650, 350)">
+    <circle cx="0" cy="0" r="30" fill="#10b981" opacity="0.9"/>
+    <path d="M0 -20 L0 -5 L15 0" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

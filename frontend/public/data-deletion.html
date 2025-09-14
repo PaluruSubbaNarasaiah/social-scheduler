@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion - Simple Social Scheduler</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #3b82f6; }
+        .form-group { margin: 15px 0; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: #dc2626; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #b91c1c; }
+        .warning { background: #fef2f2; border: 1px solid #fecaca; padding: 15px; border-radius: 5px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Data Deletion Request</h1>
+    
+    <div class="warning">
+        <strong>⚠️ Warning:</strong> This action will permanently delete all your data including posts, analytics, and account information. This cannot be undone.
+    </div>
+
+    <form id="deletionForm">
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="reason">Reason for deletion (optional):</label>
+            <textarea id="reason" name="reason" rows="4" placeholder="Please let us know why you're deleting your data..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="confirm" required>
+                I understand that this action will permanently delete all my data and cannot be undone.
+            </label>
+        </div>
+
+        <button type="submit">Delete My Data</button>
+    </form>
+
+    <div id="result" style="margin-top: 20px;"></div>
+
+    <script>
+        document.getElementById('deletionForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const reason = document.getElementById('reason').value;
+            const confirmed = document.getElementById('confirm').checked;
+            
+            if (!confirmed) {
+                alert('Please confirm that you understand this action cannot be undone.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/data-delete/request', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, reason })
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('result').innerHTML = 
+                        '<div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 5px; color: #166534;">' +
+                        '<strong>✅ Request Submitted</strong><br>' +
+                        'Your data deletion request has been submitted. You will receive a confirmation email within 24 hours.' +
+                        '</div>';
+                    document.getElementById('deletionForm').style.display = 'none';
+                } else {
+                    throw new Error(result.message || 'Request failed');
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = 
+                    '<div style="background: #fef2f2; border: 1px solid #fecaca; padding: 15px; border-radius: 5px; color: #dc2626;">' +
+                    '<strong>❌ Error:</strong> ' + error.message +
+                    '</div>';
+            }
+        });
+    </script>
+</body>
+</html>
