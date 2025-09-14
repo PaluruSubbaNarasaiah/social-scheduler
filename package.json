@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "Simple Social Media Post Scheduler",
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
-    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
-    "start": "cd backend && npm start"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.0"
+    "build": "echo 'Backend only - no build required'",
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev"
   }
 }
