@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Testing Backend API</h1>
+    <button onclick="testAPI()">Test API</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const result = document.getElementById('result');
+            
+            try {
+                // Test health check
+                const response = await fetch('https://social-scheduler-self.vercel.app/api/');
+                const data = await response.json();
+                result.innerHTML = `<p>✅ API Health: ${JSON.stringify(data)}</p>`;
+                
+                // Test register
+                const registerResponse = await fetch('https://social-scheduler-self.vercel.app/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@example.com',
+                        password: 'password123'
+                    })
+                });
+                
+                const registerData = await registerResponse.text();
+                result.innerHTML += `<p>Register Response: ${registerData}</p>`;
+                
+            } catch (error) {
+                result.innerHTML = `<p>❌ Error: ${error.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
