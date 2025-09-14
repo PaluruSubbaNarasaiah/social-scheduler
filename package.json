@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple Social Media Post Scheduler",
   "scripts": {
-    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "build": "cd frontend && npm install && npm run build",
     "start": "cd backend && npm start",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\""
   },
