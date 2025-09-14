@@ -6,7 +6,7 @@ try {
   execSync('npm install', { cwd: path.join(__dirname, 'frontend'), stdio: 'inherit' });
   
   console.log('Building frontend...');
-  execSync('npm run build', { cwd: path.join(__dirname, 'frontend'), stdio: 'inherit' });
+  execSync('node node_modules/vite/bin/vite.js build', { cwd: path.join(__dirname, 'frontend'), stdio: 'inherit' });
   
   console.log('Frontend build completed successfully!');
 } catch (error) {
